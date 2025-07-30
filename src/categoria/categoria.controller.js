@@ -65,17 +65,25 @@ export const eliminarCategoria = async (req, res) => {
     try {
         const { uid } = req.params;
 
-        const categoria = await Categoria.findById(uid);
+        let categoriaPorDefecto = await Categoria.findOne({ nombre: "Categoria por defecto" });
+        if (!categoriaPorDefecto) {
+            categoriaPorDefecto = await Categoria.create({
+                nombre: "Categoria por defecto",
+                descripcion: "Categoria por defecto para productos sin categoria",
+            });
+        }
+
+        await Producto.updateMany({ categoria: uid }, { categoria: categoriaPorDefecto._id });
+
+        const categoria = await Categoria.findByIdAndDelete(uid);
         if (!categoria) {
             return res.status(404).json({
                 message: "Categoria no encontrada",
             });
         }
 
-        await Categoria.findByIdAndDelete(uid);
-
         return res.status(200).json({
-            message: "Categoria eliminada exitosamente",
+            message: "Categoria eliminada",
             nombre: categoria.nombre,
             descripcion: categoria.descripcion,
         });

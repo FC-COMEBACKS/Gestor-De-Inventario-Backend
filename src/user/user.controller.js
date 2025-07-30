@@ -15,7 +15,7 @@ export const getUserById = async (req, res) => {
 
         return res.status(200).json({
             success: true,
-            user
+            user: user.toJSON() 
         });
     } catch (err) {
         return res.status(500).json({
@@ -41,7 +41,7 @@ export const getUsers = async (req, res) => {
         return res.status(200).json({
             success: true,
             total,
-            users
+            users: users.map(user => user.toJSON()) 
         });
     } catch (err) {
         return res.status(500).json({
@@ -138,7 +138,7 @@ export const updateRole = async (req, res) => {
         const { uid } = req.params;
         const { newRole } = req.body;
 
-        
+
         const user = await User.findById(uid);
         if (!user) {
             return res.status(404).json({
@@ -147,7 +147,7 @@ export const updateRole = async (req, res) => {
             });
         }
 
-        
+
         if (user.role === newRole) {
             return res.status(400).json({
                 success: false,
@@ -155,7 +155,7 @@ export const updateRole = async (req, res) => {
             });
         }
 
-        
+
         const validRoles = ["ADMIN_ROLE", "CLIENT_ROLE"];
         if (!validRoles.includes(newRole)) {
             return res.status(400).json({
@@ -164,7 +164,7 @@ export const updateRole = async (req, res) => {
             });
         }
 
-        
+
         await User.findByIdAndUpdate(uid, { role: newRole }, { new: true });
 
         return res.status(200).json({
@@ -184,7 +184,7 @@ export const eliminarCuenta = async (req, res) => {
     try {
         const { uid } = req.params;
         const { password } = req.body;
- 
+
         const user = await User.findById(uid);
         if (!user) {
             return res.status(404).json({
@@ -199,7 +199,7 @@ export const eliminarCuenta = async (req, res) => {
                 success: false,
                 message: "La contraseña es incorrecta"
             });
-        }        
+        }
 
         await User.findByIdAndDelete(uid);
 
