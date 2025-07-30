@@ -6,6 +6,13 @@ import helmet from "helmet";
 import morgan from "morgan";
 import cron from "node-cron";
 import axios from "axios";
+import { dbConnection } from "./mongo.js";
+import { adminPorDefault } from "./adminDefault.js";
+import authRoutes from "../src/auth/auth.routes.js"
+import userRoutes from "../src/user/user.routes.js";
+import apiLimiter from "../src/middlewares/rate-limit-validator.js";
+import { swaggerDocs, swaggerUi } from "./swagger.js";
+
 
 const middlewares = (app) => {
     app.use(express.urlencoded({ extended: false }));
@@ -17,6 +24,9 @@ const middlewares = (app) => {
 };
 
 const routes = (app) => {
+    app.use("/gestorInventario/v1/auth", authRoutes)
+    app.use("/gestorInventario/v1/user", userRoutes);
+    app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
     app.get("/ping", (req, res) => {
         res.status(200).json({ message: "pong" });
     })
@@ -28,9 +38,6 @@ const conectarDB = async () => {
         await dbConnection()
 
         await adminPorDefault()
-
-        await categoriaPorDefecto()
-
     } catch (err) {
         console.log(`Database connection failed: ${err}`);
         process.exit(1);

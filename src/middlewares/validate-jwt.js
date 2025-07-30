@@ -3,42 +3,45 @@ import User from "../user/user.model.js"
 
 export const validateJWT = async (req, res, next) => {
     try{
-        let token = req.body.token || req.query.token || req.headers["authorization"]
+        let token = req.headers["authorization"]
 
         if(!token){
-            return res.status(400).json({
+            return res.status(401).json({
                 success: false,
                 message: "No existe token en la petición"
             })
         }
 
-        token = token.replace(/^Bearer\s+/, "")
+        if(token.startsWith('Bearer ')){
+            token = token.slice(7, token.length);
+        }
 
-        const { uid } = jwt.verify(token, process.env.SECRETORPRIVATEKEY)
-
-        const user = await User.findById(uid)
+        const decoded = jwt.verify(token, process.env.SECRETORPRIVATEKEY)
+        
+        const user = await User.findById(decoded.uid)
 
         if(!user){
-           return res.status(400).json({
+           return res.status(401).json({
                 success: false,
-                message: "usuario no existe en la DB"
+                message: "Usuario no existe en la DB"
            }) 
         }
 
         if(user.status === false){
-            return res.status(400).json({
+            return res.status(401).json({
                 success: false,
-                message: " Usuario desactivado previamente"
+                message: "Usuario desactivado previamente"
             })
         }
 
         req.usuario = user
         next()
-    }catch(err){
-        return res.status(500).json({
+        
+    }catch(error){
+        return res.status(401).json({
             success: false,
-            message : "Error al validar el token",
-            error: err.message
+            message: "Token no válido",
+            error: error.message
         })
     }
 }
