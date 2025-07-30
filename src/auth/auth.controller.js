@@ -48,12 +48,20 @@ export const login = async (req, res) => {
 
         const token = await generateJWT(user.id)
 
+        const userJson = user.toJSON();
+
         return res.status(200).json({
             message: "Login successful",
             userDetails: {
+                uid: userJson.uid,
+                name: userJson.name,
+                surname: userJson.surname,
+                username: userJson.username,
+                email: userJson.email,
+                phone: userJson.phone,
+                role: userJson.role,
                 token: token,
-                role: user.role,
-                profilePicture: user.profilePicture
+                profilePicture: userJson.profilePicture
             }
         })
     }catch(err){
