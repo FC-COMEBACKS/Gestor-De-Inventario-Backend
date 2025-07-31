@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "688af4d66c32a3cc58777d7f"
+  },
+  "nombre": "Categoria por defecto",
+  "descripcion": "Categoria por defecto para productos sin categoria",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "688afeda6c32a3cc58777d83"
+  },
+  "nombre": "Electrónicos",
+  "descripcion": "Productos electrónicos y tecnológicos",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "688afefd6c32a3cc58777d86"
+  },
+  "nombre": "Ropa",
+  "descripcion": "Vestimenta para todas las edades y estilos",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "688aff126c32a3cc58777d89"
+  },
+  "nombre": "Hogar",
+  "descripcion": "Artículos para el hogar y decoración",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "688aff226c32a3cc58777d8c"
+  },
+  "nombre": "Deportes",
+  "descripcion": "Equipo y accesorios deportivos",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "688aff2e6c32a3cc58777d8f"
+  },
+  "nombre": "Juguetes",
+  "descripcion": "Juguetes y juegos para todas las edades",
+  "status": true
+},
+{
+  "_id": {
+    "$oid": "688aff556c32a3cc58777d92"
+  },
+  "nombre": "Videojuegos",
+  "descripcion": "Consolas, juegos y accesorios para gamers",
+  "status": true
+}]
