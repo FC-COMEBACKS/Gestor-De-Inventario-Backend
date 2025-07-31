@@ -186,48 +186,38 @@ router.post("/agregarProducto", agregarProductoAlCarritoValidator, agregarProduc
  *       - Carrito de Compras
  *     responses:
  *       200:
- *         description: Carrito obtenido exitosamente
+ *         description: Carrito obtenido exitosamente (puede estar vacío o con productos)
  *         content:
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/CarritoResponse'
- *             example:
- *               items:
- *                 - id: 1
- *                   productId: 1
- *                   userId: 1
- *                   cantidad: 2
- *                   precio: 25.99
- *                   subtotal: 51.98
- *                   producto:
- *                     id: 1
- *                     nombre: "Producto ejemplo"
- *                     descripcion: "Descripción del producto"
- *                     precio: 25.99
- *                     stock: 10
- *                     imagen: "imagen.jpg"
- *               total: 51.98
- *               cantidadItems: 1
- *       200:
- *         description: Carrito vacío
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 message:
- *                   type: string
- *                   example: "El carrito está vacío"
- *                 items:
- *                   type: array
- *                   items: {}
- *                   example: []
- *                 total:
- *                   type: number
- *                   example: 0
- *                 cantidadItems:
- *                   type: integer
- *                   example: 0
+ *             examples:
+ *               carritoConProductos:
+ *                 summary: Carrito con productos
+ *                 value:
+ *                   items:
+ *                     - id: 1
+ *                       productId: 1
+ *                       userId: 1
+ *                       cantidad: 2
+ *                       precio: 25.99
+ *                       subtotal: 51.98
+ *                       producto:
+ *                         id: 1
+ *                         nombre: "Producto ejemplo"
+ *                         descripcion: "Descripción del producto"
+ *                         precio: 25.99
+ *                         stock: 10
+ *                         imagen: "imagen.jpg"
+ *                   total: 51.98
+ *                   cantidadItems: 1
+ *               carritoVacio:
+ *                 summary: Carrito vacío
+ *                 value:
+ *                   message: "El carrito está vacío"
+ *                   items: []
+ *                   total: 0
+ *                   cantidadItems: 0
  *       401:
  *         description: Token de autenticación requerido
  *       500:
