@@ -1,0 +1,1405 @@
+{
+	"info": {
+		"_postman_id": "bf4b777b-9ece-4216-91b3-2611bacbe664",
+		"name": "GESTOR DE INVENTARIO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42000110"
+	},
+	"item": [
+		{
+			"name": "USER ADMIN",
+			"item": [
+				{
+					"name": "Register Administrador",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Eduardo\",\r\n    \"surname\": \"Escobar\",\r\n    \"username\": \"escobar520\",\r\n    \"email\": \"escobar520@gmail.com\",\r\n    \"password\": \"Cremas30*\",\r\n    \"phone\": \"12345678\",\r\n    \"role\": \"ADMIN_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorInventario/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"danieltuy@gmail.com\",\r\n  \"password\": \"Cremas30*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorInventario/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Usuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTcxMzlmYjQ5ZWE1ZWQ2ZTZhYWUiLCJpYXQiOjE3NTM3NjU3MDYsImV4cCI6MTc1Mzg1MjEwNn0.tkZYqFv7tjuPjMmH5NC4THYojpXmZcU93Nq5s3eMPp0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Usuario por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTcxMzlmYjQ5ZWE1ZWQ2ZTZhYWUiLCJpYXQiOjE3NTM3NjU3MDYsImV4cCI6MTc1Mzg1MjEwNn0.tkZYqFv7tjuPjMmH5NC4THYojpXmZcU93Nq5s3eMPp0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorInventario/v1/user/findUser/688857139fb49ea5ed6e6aae",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"user",
+								"findUser",
+								"688857139fb49ea5ed6e6aae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Usuario",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTcxMzlmYjQ5ZWE1ZWQ2ZTZhYWUiLCJpYXQiOjE3NTM3NjU3MDYsImV4cCI6MTc1Mzg1MjEwNn0.tkZYqFv7tjuPjMmH5NC4THYojpXmZcU93Nq5s3eMPp0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/user/deleteUser/688857139fb49ea5ed6e6aae",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"user",
+								"deleteUser",
+								"688857139fb49ea5ed6e6aae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR CONTRASEÑA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MDg2NjIsImV4cCI6MTc1Mzg5NTA2Mn0.liGIeMMQuXenYW6kjW8uq6stJPOPyii3LiCta3URY-8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\": \"Cremas30*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/user/updatePassword/6888525269c0aa0431feea74",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"user",
+								"updatePassword",
+								"6888525269c0aa0431feea74"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR USUARIO",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MDg2NjIsImV4cCI6MTc1Mzg5NTA2Mn0.liGIeMMQuXenYW6kjW8uq6stJPOPyii3LiCta3URY-8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Juan Carlos Pérez\",\r\n    \"surname\": \"escobar520\",\r\n    \"email\": \"juancarlos@ejemplo.com\",\r\n    \"phone\": \"+573001234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/user/updateUser/6888ffaf1a72402c9a86ff69",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"user",
+								"updateUser",
+								"6888ffaf1a72402c9a86ff69"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR ROLE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MDg2NjIsImV4cCI6MTc1Mzg5NTA2Mn0.liGIeMMQuXenYW6kjW8uq6stJPOPyii3LiCta3URY-8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newRole\": \"CLIENT_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/user/updateRole/6888ffaf1a72402c9a86ff69",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"user",
+								"updateRole",
+								"6888ffaf1a72402c9a86ff69"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Cuenta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg5MDExYzFhNzI0MDJjOWE4NmZmNzkiLCJpYXQiOjE3NTM4MDkyMjYsImV4cCI6MTc1Mzg5NTYyNn0.SZ1MFFev9UDoUK0YZ7sdLRk1e91_qEGcPps7gZFbXS4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"Cremas30*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/user/eliminarCuenta/6889011c1a72402c9a86ff79",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"user",
+								"eliminarCuenta",
+								"6889011c1a72402c9a86ff79"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USER CLIENT",
+			"item": [
+				{
+					"name": "Register Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Eduardo\",\r\n    \"surname\": \"Escobar\",\r\n    \"username\": \"escobar520\",\r\n    \"email\": \"escobar520@gmail.com\",\r\n    \"password\": \"Cremas30*\",\r\n    \"phone\": \"12345678\",\r\n    \"role\": \"ADMIN_ROLE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorInventario/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"danieltuy@gmail.com\",\r\n  \"password\": \"Cremas30*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorInventario/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener Usuario por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTcxMzlmYjQ5ZWE1ZWQ2ZTZhYWUiLCJpYXQiOjE3NTM3NjU3MDYsImV4cCI6MTc1Mzg1MjEwNn0.tkZYqFv7tjuPjMmH5NC4THYojpXmZcU93Nq5s3eMPp0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:3002/gestorInventario/v1/user/findUser/688857139fb49ea5ed6e6aae",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"user",
+								"findUser",
+								"688857139fb49ea5ed6e6aae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR CONTRASEÑA",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MDg2NjIsImV4cCI6MTc1Mzg5NTA2Mn0.liGIeMMQuXenYW6kjW8uq6stJPOPyii3LiCta3URY-8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"newPassword\": \"Cremas30*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/user/updatePassword/6888525269c0aa0431feea74",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"user",
+								"updatePassword",
+								"6888525269c0aa0431feea74"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR USUARIO",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MDg2NjIsImV4cCI6MTc1Mzg5NTA2Mn0.liGIeMMQuXenYW6kjW8uq6stJPOPyii3LiCta3URY-8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Juan Carlos Pérez\",\r\n    \"surname\": \"escobar520\",\r\n    \"email\": \"juancarlos@ejemplo.com\",\r\n    \"phone\": \"+573001234567\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/user/updateUser/6888ffaf1a72402c9a86ff69",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"user",
+								"updateUser",
+								"6888ffaf1a72402c9a86ff69"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar Cuenta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg5MDExYzFhNzI0MDJjOWE4NmZmNzkiLCJpYXQiOjE3NTM4MDkyMjYsImV4cCI6MTc1Mzg5NTYyNn0.SZ1MFFev9UDoUK0YZ7sdLRk1e91_qEGcPps7gZFbXS4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"Cremas30*\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/user/eliminarCuenta/6889011c1a72402c9a86ff79",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"user",
+								"eliminarCuenta",
+								"6889011c1a72402c9a86ff79"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CATEGORIA",
+			"item": [
+				{
+					"name": "CREAR CATEGORIA ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODhhZjRkNjZjMzJhM2NjNTg3NzdkN2MiLCJpYXQiOjE3NTM5Mzk0OTQsImV4cCI6MTc1NDAyNTg5NH0.o6JlzHWk3IMw_vqIx54C9IhmKBBySZ5baaeEWeNpEV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"Videojuegos\",\r\n  \"descripcion\": \"Consolas, juegos y accesorios para gamers\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/categoria/crearCategoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"categoria",
+								"crearCategoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LISTAR CATEGORIA ADMIN Y CLIENTE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/categoria/listarCategorias",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"categoria",
+								"listarCategorias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR CATEGORIA ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Electrónicos y Gadgets\",\r\n    \"descripcion\": \"Productos electrónicos, gadgets y tecnología moderna\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/categoria/editarCategoria/68890625b246c425c1d3437b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"categoria",
+								"editarCategoria",
+								"68890625b246c425c1d3437b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ELIMINAR CATEGORIA ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Electrónicos y Gadgets\",\r\n    \"descripcion\": \"Productos electrónicos, gadgets y tecnología moderna\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/categoria/eliminarCategoria/688907d4b246c425c1d34384",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"categoria",
+								"eliminarCategoria",
+								"688907d4b246c425c1d34384"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PRODUCTOS",
+			"item": [
+				{
+					"name": "AGREGAR PRODUCTOS ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODhhZjRkNjZjMzJhM2NjNTg3NzdkN2MiLCJpYXQiOjE3NTM5Mzk0OTQsImV4cCI6MTc1NDAyNTg5NH0.o6JlzHWk3IMw_vqIx54C9IhmKBBySZ5baaeEWeNpEV4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreProducto\": \"Disco Duro Externo Seagate 2TB\",\r\n    \"descripcionProducto\": \"Disco duro externo portátil USB 3.0 de 2TB\",\r\n    \"precioProducto\": 89.99,\r\n    \"stock\": 60,\r\n    \"categoria\": \"688aff556c32a3cc58777d92\",\r\n    \"proveedor\": \"Seagate\",\r\n    \"vendidos\": 11\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/producto/agregarProducto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"producto",
+								"agregarProducto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LISTAR TODOS LOS PRODUCTOS CLIENTE Y ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "Http://localhost:3002/gestorInventario/v1/producto/ListarProductos",
+							"protocol": "Http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"producto",
+								"ListarProductos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LISTAR TODOS LOS PRODUCTOS ID CLIENTE Y ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/producto/listarProductoPorId/688908e8b246c425c1d34391",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"producto",
+								"listarProductoPorId",
+								"688908e8b246c425c1d34391"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ACTUALIZAR PRODUCTOS ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreProducto\": \"iPhone 15 Pro Max\",\r\n    \"descripcionProducto\": \"Smartphone Apple iPhone 15 Pro Max de 512GB en color Natural Titanium\",\r\n    \"precioProducto\": 1499.99,\r\n    \"stock\": 15,\r\n    \"categoria\": \"68890625b246c425c1d3437b\",\r\n    \"proveedor\": \"Apple Inc.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/producto/actualizarProducto/688908e8b246c425c1d34391",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"producto",
+								"actualizarProducto",
+								"688908e8b246c425c1d34391"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ELIMINAR PRODUCTOS ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/producto/eliminarProducto/688908f3b246c425c1d3439b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"producto",
+								"eliminarProducto",
+								"688908f3b246c425c1d3439b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCTOS AGOTADOS ADMIN Y CLIENTE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/producto/productosAgotados",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"producto",
+								"productosAgotados"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PRODUCTOS MAS VENDIDOS ADMIN Y CLIENTE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/producto/productosMasVendidos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"producto",
+								"productosMasVendidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR PRODUCTO POR NOMBRE ADMIN Y CLIENTE",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreProducto\": \"iPhone 15 Pro Max\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/producto/buscarProductosPorNombre",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"producto",
+								"buscarProductosPorNombre"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR PRODUCTO POR CATEGORIA ADMIN Y CLIENTE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/producto/productosPorCategoria/68890625b246c425c1d3437b",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"producto",
+								"productosPorCategoria",
+								"68890625b246c425c1d3437b"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CARRITO DE COMPRAS",
+			"item": [
+				{
+					"name": "AGREGAR PRODUCTO AL CARRITO ADMIN Y CLIENTE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idProducto\": \"688908edb246c425c1d34396\",\r\n    \"cantidad\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/carritoDeCompras/agregarProducto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"carritoDeCompras",
+								"agregarProducto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LISTAR PRODUCTOS CARRITO ADMIN Y CLIENTE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/carritoDeCompras/listarCarrito",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"carritoDeCompras",
+								"listarCarrito"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ELIMINAR PRODUCTOS CARRITO ADMIN Y CLIENTE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/carritoDeCompras/eliminarProducto/688908edb246c425c1d34396",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"carritoDeCompras",
+								"eliminarProducto",
+								"688908edb246c425c1d34396"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FACTURA",
+			"item": [
+				{
+					"name": "PROCESAR COMPRA CLIENTE Y ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/factura/procesarCompra",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"factura",
+								"procesarCompra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EDITAR FACTURA ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"productos\": [\r\n        {\r\n            \"idProducto\": \"507f1f77bcf86cd799439020\",\r\n            \"nombreProducto\": \"iPhone 15 Pro\",\r\n            \"cantidad\": 2,\r\n            \"precioProducto\": 1299.99\r\n        },\r\n        {\r\n            \"idProducto\": \"507f1f77bcf86cd799439022\",\r\n            \"nombreProducto\": \"Samsung Galaxy S24\",\r\n            \"cantidad\": 1,\r\n            \"precioProducto\": 1399.99\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/factura/editarFactura/68890ee581da32bc13fe4d1e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"factura",
+								"editarFactura",
+								"68890ee581da32bc13fe4d1e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ANULAR FACTURA ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"motivo\": \"Producto defectuoso reportado por el cliente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/factura/anularFactura/68890ee581da32bc13fe4d1e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"factura",
+								"anularFactura",
+								"68890ee581da32bc13fe4d1e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OBTENER FACTURAS POR USUARIO",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM4MTA0NTcsImV4cCI6MTc1Mzg5Njg1N30.EKQo_DYedtESC_53XDDOGATbjWP8vIkaP9k5VDp4DjU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/factura/obtenerFacturasPorUsuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"factura",
+								"obtenerFacturasPorUsuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OBTENER FACTURA ESPECIFICA ADMIN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM5MTkzNDcsImV4cCI6MTc1NDAwNTc0N30.LJTmSUrLxeSikn5omo5aizOK_wAnLDANgnX_zMn8zVM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/factura/obtenerFactura/68890ee581da32bc13fe4d1e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"factura",
+								"obtenerFactura",
+								"68890ee581da32bc13fe4d1e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DESCARGAR PDF ADMIN Y CLIENTE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2ODg4NTI1MjY5YzBhYTA0MzFmZWVhNzQiLCJpYXQiOjE3NTM5MTkzNDcsImV4cCI6MTc1NDAwNTc0N30.LJTmSUrLxeSikn5omo5aizOK_wAnLDANgnX_zMn8zVM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3002/gestorInventario/v1/factura/descargarPDF/68890ee581da32bc13fe4d1e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"gestorInventario",
+								"v1",
+								"factura",
+								"descargarPDF",
+								"68890ee581da32bc13fe4d1e"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,315 @@
+[{
+  "_id": {
+    "$oid": "688affe66c32a3cc58777d9a"
+  },
+  "nombreProducto": "iPhone 16 Pro",
+  "descripcionProducto": "Smartphone Apple iPhone 15 Pro de 256GB en color Natural Titanium",
+  "precioProducto": 1299.99,
+  "stock": 25,
+  "vendidos": 0,
+  "categoria": {
+    "$oid": "688afeda6c32a3cc58777d83"
+  },
+  "proveedor": "Apple Inc.",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-07-31T05:32:22.691Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-31T05:32:22.691Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "688b00116c32a3cc58777d9f"
+  },
+  "nombreProducto": "Samsung Galaxy S24",
+  "descripcionProducto": "Smartphone Samsung Galaxy S24 de 256GB con cámara avanzada y pantalla AMOLED",
+  "precioProducto": 1099.99,
+  "stock": 30,
+  "vendidos": 5,
+  "categoria": {
+    "$oid": "688afeda6c32a3cc58777d83"
+  },
+  "proveedor": "Samsung Electronics",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-07-31T05:33:05.906Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-31T05:33:05.906Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "688b002f6c32a3cc58777da4"
+  },
+  "nombreProducto": "Smart TV LG 55'' 4K",
+  "descripcionProducto": "Televisor LG UHD 4K de 55 pulgadas con webOS y control por voz",
+  "precioProducto": 649.99,
+  "stock": 15,
+  "vendidos": 2,
+  "categoria": {
+    "$oid": "688afeda6c32a3cc58777d83"
+  },
+  "proveedor": "LG Electronics",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-07-31T05:33:35.163Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-31T05:33:35.163Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "688b00556c32a3cc58777da9"
+  },
+  "nombreProducto": "Laptop Dell XPS 13",
+  "descripcionProducto": "Portátil Dell XPS 13 con procesador Intel i7, 16GB RAM y SSD 512GB",
+  "precioProducto": 1399,
+  "stock": 20,
+  "vendidos": 3,
+  "categoria": {
+    "$oid": "688afeda6c32a3cc58777d83"
+  },
+  "proveedor": "Dell Inc.",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-07-31T05:34:13.915Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-31T05:34:13.915Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "688b00a56c32a3cc58777dae"
+  },
+  "nombreProducto": "PlayStation 5",
+  "descripcionProducto": "Consola Sony PlayStation 5 con 825GB SSD y mando DualSense",
+  "precioProducto": 499.99,
+  "stock": 40,
+  "vendidos": 12,
+  "categoria": {
+    "$oid": "688aff556c32a3cc58777d92"
+  },
+  "proveedor": "Sony",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-07-31T05:35:33.494Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-31T05:35:33.494Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "688b00e06c32a3cc58777db3"
+  },
+  "nombreProducto": "Nintendo Switch OLED",
+  "descripcionProducto": "Consola Nintendo Switch modelo OLED con Joy-Con blancos",
+  "precioProducto": 349.99,
+  "stock": 35,
+  "vendidos": 8,
+  "categoria": {
+    "$oid": "688aff556c32a3cc58777d92"
+  },
+  "proveedor": "Nintendo",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-07-31T05:36:32.267Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-31T05:36:32.267Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "688b01116c32a3cc58777db8"
+  },
+  "nombreProducto": "Auriculares Sony WH-1000XM5",
+  "descripcionProducto": "Auriculares inalámbricos con cancelación activa de ruido y sonido Hi-Res",
+  "precioProducto": 399.99,
+  "stock": 50,
+  "vendidos": 6,
+  "categoria": {
+    "$oid": "688afeda6c32a3cc58777d83"
+  },
+  "proveedor": "Sony",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-07-31T05:37:21.665Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-31T05:37:21.665Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "688b01346c32a3cc58777dbd"
+  },
+  "nombreProducto": "Apple Watch Series 9",
+  "descripcionProducto": "Smartwatch Apple Watch Series 9 con GPS y monitor de salud",
+  "precioProducto": 429.99,
+  "stock": 18,
+  "vendidos": 4,
+  "categoria": {
+    "$oid": "688afeda6c32a3cc58777d83"
+  },
+  "proveedor": "Apple Inc.",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-07-31T05:37:56.479Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-31T05:37:56.479Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "688b01c56c32a3cc58777dc2"
+  },
+  "nombreProducto": "Tablet iPad Air 5",
+  "descripcionProducto": "Apple iPad Air de quinta generación con chip M1 y pantalla de 10.9 pulgadas",
+  "precioProducto": 599.99,
+  "stock": 22,
+  "vendidos": 1,
+  "categoria": {
+    "$oid": "688afeda6c32a3cc58777d83"
+  },
+  "proveedor": "Apple Inc.",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-07-31T05:40:21.863Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-31T05:40:21.863Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "688b01fc6c32a3cc58777dc7"
+  },
+  "nombreProducto": "Monitor Gaming ASUS ROG 27''",
+  "descripcionProducto": "Monitor de 27 pulgadas, 144Hz, 1ms y resolución QHD para gamers",
+  "precioProducto": 459.99,
+  "stock": 12,
+  "vendidos": 2,
+  "categoria": {
+    "$oid": "688aff556c32a3cc58777d92"
+  },
+  "proveedor": "ASUS",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-07-31T05:41:16.306Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-31T05:41:16.306Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "688b02266c32a3cc58777dcc"
+  },
+  "nombreProducto": "Teclado Mecánico Logitech G Pro X",
+  "descripcionProducto": "Teclado mecánico personalizable para juegos, con switches intercambiables",
+  "precioProducto": 129.99,
+  "stock": 28,
+  "vendidos": 10,
+  "categoria": {
+    "$oid": "688aff556c32a3cc58777d92"
+  },
+  "proveedor": "Logitech",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-07-31T05:41:58.934Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-31T05:41:58.934Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "688b02576c32a3cc58777dd1"
+  },
+  "nombreProducto": "Cámara Canon EOS R10",
+  "descripcionProducto": "Cámara mirrorless con sensor APS-C y grabación 4K",
+  "precioProducto": 999,
+  "stock": 14,
+  "vendidos": 1,
+  "categoria": {
+    "$oid": "688afeda6c32a3cc58777d83"
+  },
+  "proveedor": "Canon",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-07-31T05:42:47.826Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-31T05:42:47.826Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "688b02816c32a3cc58777dd6"
+  },
+  "nombreProducto": "Impresora HP Smart Tank 720",
+  "descripcionProducto": "Impresora multifuncional con sistema de tinta continua y Wi-Fi",
+  "precioProducto": 199.99,
+  "stock": 10,
+  "vendidos": 0,
+  "categoria": {
+    "$oid": "688afeda6c32a3cc58777d83"
+  },
+  "proveedor": "HP",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-07-31T05:43:29.837Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-31T05:43:29.837Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "688b02ba6c32a3cc58777ddb"
+  },
+  "nombreProducto": "Router TP-Link AX5400",
+  "descripcionProducto": "Router Wi-Fi 6 de alto rendimiento con 6 antenas y velocidad ultrarrápida",
+  "precioProducto": 159.99,
+  "stock": 19,
+  "vendidos": 7,
+  "categoria": {
+    "$oid": "688aff556c32a3cc58777d92"
+  },
+  "proveedor": "TP-Link",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-07-31T05:44:26.623Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-31T05:44:26.623Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "688b02da6c32a3cc58777de0"
+  },
+  "nombreProducto": "Disco Duro Externo Seagate 2TB",
+  "descripcionProducto": "Disco duro externo portátil USB 3.0 de 2TB",
+  "precioProducto": 89.99,
+  "stock": 60,
+  "vendidos": 11,
+  "categoria": {
+    "$oid": "688aff556c32a3cc58777d92"
+  },
+  "proveedor": "Seagate",
+  "status": true,
+  "createdAt": {
+    "$date": "2025-07-31T05:44:59.000Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-31T05:44:59.000Z"
+  }
+}]

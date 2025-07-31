@@ -1,0 +1,79 @@
+[{
+  "_id": {
+    "$oid": "68890ee581da32bc13fe4d1e"
+  },
+  "idUsuario": {
+    "$oid": "6888525269c0aa0431feea74"
+  },
+  "productos": [
+    {
+      "idProducto": {
+        "$oid": "507f1f77bcf86cd799439020"
+      },
+      "nombreProducto": "iPhone 15 Pro",
+      "cantidad": 2,
+      "precioProducto": 1299.99,
+      "_id": {
+        "$oid": "68890f9281da32bc13fe4d3a"
+      }
+    },
+    {
+      "idProducto": {
+        "$oid": "507f1f77bcf86cd799439022"
+      },
+      "nombreProducto": "Samsung Galaxy S24",
+      "cantidad": 1,
+      "precioProducto": 1399.99,
+      "_id": {
+        "$oid": "68890f9281da32bc13fe4d3b"
+      }
+    }
+  ],
+  "total": 3999.9700000000003,
+  "estado": "ANULADA",
+  "fecha": {
+    "$date": "2025-07-29T18:11:49.555Z"
+  },
+  "createdAt": {
+    "$date": "2025-07-29T18:11:49.555Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-29T18:16:12.928Z"
+  },
+  "fechaAnulacion": {
+    "$date": "2025-07-29T18:16:12.928Z"
+  },
+  "motivoAnulacion": "Producto defectuoso reportado por el cliente"
+},
+{
+  "_id": {
+    "$oid": "6889117dafaab15d3fa794c9"
+  },
+  "idUsuario": {
+    "$oid": "6888525269c0aa0431feea74"
+  },
+  "productos": [
+    {
+      "idProducto": {
+        "$oid": "688908edb246c425c1d34396"
+      },
+      "nombreProducto": "iPhone 15 Pro",
+      "cantidad": 6,
+      "precioProducto": 1299.99,
+      "_id": {
+        "$oid": "6889117dafaab15d3fa794ca"
+      }
+    }
+  ],
+  "total": 7799.9400000000005,
+  "estado": "ACTIVA",
+  "fecha": {
+    "$date": "2025-07-29T18:22:53.159Z"
+  },
+  "createdAt": {
+    "$date": "2025-07-29T18:22:53.161Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-29T18:22:53.161Z"
+  }
+}]
