@@ -14,6 +14,7 @@ import userRoutes from "../src/user/user.routes.js";
 import categoriaRoutes from "../src/categoria/categoria.routes.js";
 import productoRoutes from "../src/productos/productos.routes.js"
 import carritoDeComprasRoutes from "../src/carritoDeCompras/carritoDeCompras.routes.js";
+import facturaRoutes from "../src/factura/factura.routes.js";
 import apiLimiter from "../src/middlewares/rate-limit-validator.js";
 import { swaggerDocs, swaggerUi } from "./swagger.js";
 
@@ -33,6 +34,7 @@ const routes = (app) => {
     app.use("/gestorInventario/v1/categoria", categoriaRoutes);
     app.use("/gestorInventario/v1/producto", productoRoutes);
     app.use("/gestorInventario/v1/carritoDeCompras", carritoDeComprasRoutes);
+    app.use("/gestorInventario/v1/factura", facturaRoutes);
     app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
     app.get("/ping", (req, res) => {
         res.status(200).json({ message: "pong" });

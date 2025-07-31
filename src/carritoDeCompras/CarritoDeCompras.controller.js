@@ -91,8 +91,15 @@ export const listarProductosCarrito = async (req, res) => {
 
 export const eliminarProductoCarrito = async (req, res) => {
     try {
-        const { idProducto } = req.params;
+        const { idProducto } = req.body;  
         const { usuario } = req;
+
+        if (!idProducto) {
+            return res.status(400).json({
+                success: false,
+                message: "El ID del producto es requerido"
+            });
+        }
 
         const carrito = await CarritoDeCompras.findOne({ idUsuario: usuario._id });
 

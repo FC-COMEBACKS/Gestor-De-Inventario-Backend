@@ -8,6 +8,6 @@ router.post("/agregarProducto", agregarProductoAlCarritoValidator, agregarProduc
 
 router.get("/listarCarrito", listarProductoCarritoValidator, listarProductosCarrito);
 
-router.delete("/eliminarProducto/:idProducto", eliminarProductoDelCarritoValidator, eliminarProductoCarrito);
+router.delete("/eliminarProducto", eliminarProductoDelCarritoValidator, eliminarProductoCarrito);
 
 export default router;

@@ -1,4 +1,4 @@
-import { body, param } from "express-validator";
+import { body } from "express-validator";
 import { validarCampos } from "./validate-fields.js";
 import { deleteFileOnError } from "./delete-file-on-error.js";
 import { handleErrors } from "./handle-errors.js";
@@ -26,7 +26,7 @@ export const listarProductoCarritoValidator = [
 export const eliminarProductoDelCarritoValidator = [
     validateJWT,
     hasRoles("ADMIN_ROLE", "CLIENT_ROLE"),
-    param("idProducto").isMongoId().withMessage("No es un ID válido de MongoDB"),
+    body("idProducto").isMongoId().withMessage("No es un ID válido de MongoDB"), 
     validarCampos,
     handleErrors
 ]

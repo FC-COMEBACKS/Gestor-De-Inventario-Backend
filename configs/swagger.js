@@ -24,7 +24,8 @@ const options ={
         "./src/user/user.routes.js",
         "./src/categoria/categoria.routes.js",
         "./src/productos/productos.routes.js",
-        "./src/carritoDeCompras/carritoDeCompras.routes.js"
+        "./src/carritoDeCompras/carritoDeCompras.routes.js",
+        "./src/factura/factura.routes.js"
     ]
 }
 
