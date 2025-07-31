@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "68890cf381da32bc13fe4cea"
+  },
+  "idUsuario": {
+    "$oid": "6888525269c0aa0431feea74"
+  },
+  "productos": [],
+  "cantidadTotal": 0,
+  "createdAt": {
+    "$date": "2025-07-29T18:03:31.407Z"
+  },
+  "updatedAt": {
+    "$date": "2025-07-29T18:22:53.176Z"
+  }
+}]
