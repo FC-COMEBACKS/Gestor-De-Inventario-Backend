@@ -2,8 +2,6 @@ import Factura from './factura.model.js';
 import CarritoDeCompras from '../carritoDeCompras/carritoDeCompras.model.js';
 import Producto from '../productos/productos.model.js';
 import PDFDocument from 'pdfkit';
-import fs from 'fs';
-import path from 'path';
 
 export const procesarCompra = async (req, res) => {
     try {
@@ -50,17 +48,19 @@ export const procesarCompra = async (req, res) => {
 
         const facturaConUsuario = await Factura.findById(factura._id).populate('idUsuario', 'name surname email');
 
-        const facturasDir = path.resolve('../../public/uploads/Facturas');
-        const pdfPath = path.join(facturasDir, `factura_${factura._id}.pdf`);
-
-        await generarFacturaPDF(facturaConUsuario, pdfPath);
-
         return res.status(200).json({
             success: true,
             message: "Compra procesada exitosamente",
-            factura,
+            factura: {
+                id: factura._id,
+                total: factura.total,
+                fecha: factura.fecha,
+                estado: factura.estado,
+                cliente: facturaConUsuario.idUsuario ? `${facturaConUsuario.idUsuario.name} ${facturaConUsuario.idUsuario.surname}` : 'Cliente no disponible',
+                productos: facturaConUsuario.productos
+            },
             totalProductosVendidos,
-            pdfPath
+            downloadUrl: `/factura/descargarPDF/${factura._id}`
         });
 
     } catch (err) {
@@ -76,6 +76,7 @@ export const editarFactura = async (req, res) => {
     try {
         const { idFactura } = req.params;
         const { productos } = req.body;
+        const { usuario } = req;
 
         const factura = await Factura.findById(idFactura);
         if (!factura) {
@@ -83,7 +84,14 @@ export const editarFactura = async (req, res) => {
                 success: false,
                 message: "Factura no encontrada"
             });
-        };
+        }
+
+        if (usuario.role !== "ADMIN_ROLE" && factura.idUsuario.toString() !== usuario._id.toString()) {
+            return res.status(403).json({
+                success: false,
+                message: "No tienes permisos para editar esta factura"
+            });
+        }
 
         if (!Array.isArray(productos) || productos.length === 0) {
             return res.status(400).json({
@@ -149,6 +157,7 @@ export const anularFactura = async (req, res) => {
     try {
         const { idFactura } = req.params;
         const { motivo } = req.body;
+        const { usuario } = req;
 
         const factura = await Factura.findById(idFactura);
         
@@ -156,6 +165,13 @@ export const anularFactura = async (req, res) => {
             return res.status(404).json({
                 success: false,
                 message: "Factura no encontrada"
+            });
+        }
+
+        if (usuario.role !== "ADMIN_ROLE" && factura.idUsuario.toString() !== usuario._id.toString()) {
+            return res.status(403).json({
+                success: false,
+                message: "No tienes permisos para anular esta factura"
             });
         }
 
@@ -200,7 +216,6 @@ export const anularFactura = async (req, res) => {
         });
     }
 }
-
 
 export const obtenerFacturasPorUsuario = async (req, res) => {
     try {
@@ -251,19 +266,102 @@ export const obtenerFacturasPorUsuario = async (req, res) => {
     }
 }
 
+export const obtenerFactura = async (req, res) => {
+    try {
+        const { idFactura } = req.params;
+        const { usuario } = req;
+
+        const factura = await Factura.findById(idFactura)
+            .populate("productos.idProducto")
+            .populate("idUsuario", "name surname email");
+
+        if (!factura) {
+            return res.status(404).json({
+                success: false,
+                message: "Factura no encontrada"
+            });
+        }
+
+        if (usuario.role !== "ADMIN_ROLE" && factura.idUsuario._id.toString() !== usuario._id.toString()) {
+            return res.status(403).json({
+                success: false,
+                message: "No tienes permisos para ver esta factura"
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Factura obtenida exitosamente",
+            factura
+        });
+
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            message: "Error al obtener la factura",
+            error: err.message
+        });
+    }
+}
+
+export const descargarFacturaPDF = async (req, res) => {
+    try {
+        const { idFactura } = req.params;
+        const { usuario } = req;
+
+        const factura = await Factura.findById(idFactura)
+            .populate("idUsuario", "name surname email");
+
+        if (!factura) {
+            return res.status(404).json({
+                success: false,
+                message: "Factura no encontrada"
+            });
+        }
+
+        if (usuario.role !== "ADMIN_ROLE" && factura.idUsuario._id.toString() !== usuario._id.toString()) {
+            return res.status(403).json({
+                success: false,
+                message: "No tienes permisos para descargar esta factura"
+            });
+        }
+
+        const pdfBuffer = await generarFacturaPDF(factura);
+
+        const fileName = `Factura_${factura._id.toString().slice(-8).toUpperCase()}.pdf`;
+        
+        res.setHeader('Content-Type', 'application/pdf');
+        res.setHeader('Content-Disposition', `attachment; filename="${fileName}"`);
+        res.setHeader('Content-Length', pdfBuffer.length);
+        res.setHeader('Cache-Control', 'no-cache');
+        res.setHeader('Pragma', 'no-cache');
+        res.setHeader('Expires', '0');
+
+        return res.status(200).end(pdfBuffer);
+
+    } catch (err) {
+        return res.status(500).json({
+            success: false,
+            message: "Error al descargar la factura",
+            error: err.message
+        });
+    }
+}
+
 const generarFacturaPDF = async (factura) => {
     return new Promise((resolve, reject) => {
         try {
-            const facturasDir = path.join(process.cwd(), 'public/uploads/Facturas');
-
-            const filePath = path.join(facturasDir, `factura_${factura._id}.pdf`);
             const doc = new PDFDocument({
                 margins: { top: 50, left: 50, right: 50, bottom: 50 },
                 size: 'A4'
             });
 
-            const stream = fs.createWriteStream(filePath);
-            doc.pipe(stream);
+            const buffers = [];
+            doc.on('data', buffers.push.bind(buffers));
+            doc.on('end', () => {
+                const pdfData = Buffer.concat(buffers);
+                resolve(pdfData);
+            });
 
             doc.fillColor('#2c3e50')
                .fontSize(24)
@@ -382,7 +480,6 @@ const generarFacturaPDF = async (factura) => {
                 currentY += 20;
             });
 
-
             doc.moveTo(50, currentY)
                .lineTo(545, currentY)
                .strokeColor('#bdc3c7')
@@ -396,7 +493,6 @@ const generarFacturaPDF = async (factura) => {
                .font('Helvetica')
                .text('Subtotal:', 380, totalsY)
                .text(`Q${subtotalGeneral.toFixed(2)}`, 450, totalsY);
-
 
             const iva = subtotalGeneral * 0.12;
             doc.text('IVA (12%):', 380, totalsY + 20)
@@ -446,7 +542,6 @@ const generarFacturaPDF = async (factura) => {
                .text('Para soporte técnico contacte: soporte@fccombacks.com', 50, pageHeight - 65, { align: 'center' })
                .text(`Factura generada el ${new Date().toLocaleString('es-GT')}`, 50, pageHeight - 50, { align: 'center' });
 
-        
             doc.moveTo(50, pageHeight - 35)
                .lineTo(545, pageHeight - 35)
                .strokeColor('#bdc3c7')
@@ -454,9 +549,6 @@ const generarFacturaPDF = async (factura) => {
                .stroke();
 
             doc.end();
-
-            stream.on('finish', () => resolve(filePath));
-            stream.on('error', (err) => reject(err));
 
         } catch (error) {
             reject(error);
